@@ -1,6 +1,4 @@
-Here is the **pure, clean Markdown** content — exactly as you should paste it into your `README.md` file.
 
-Just copy **everything** from the first line to the last line (including the code fences) and paste it directly into GitHub:
 
 ```markdown
 # Calendra
