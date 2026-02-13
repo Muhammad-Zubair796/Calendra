@@ -27,19 +27,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body 
-          className={`${geistSans.variable} ${geistMono.variable} antialiased animate-fade-in flex flex-col min-h-screen`}
-        >
-          {/* flex-1 makes this area grow to fill the space, pushing the footer down */}
-          <main className="flex-1">
-            {children}
-          </main>
-
-          {/* This footer will now stay at the bottom forever */}
-          <footer className="w-full py-6 text-center text-sm text-gray-500 border-t bg-white">
-            Built by M Zubair
-          </footer>
-
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased animate-fade-in`}>
+          {children}
           <Toaster />
         </body>
       </html>
