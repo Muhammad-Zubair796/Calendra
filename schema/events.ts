@@ -1,4 +1,4 @@
-import z from "zod";
+import { z } from "zod";
 
 export const eventFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -6,7 +6,7 @@ export const eventFormSchema = z.object({
   // FIXED: Removed .optional() so it matches your Database type (String)
   description: z.string(), 
   
-  durationInMinutes: z.coerce.number()
+  durationInMinutes: z.number()
     .int()
     .positive("Duration must be greater than 0")
     // FIXED TYPO: changed "kess" to "less"
