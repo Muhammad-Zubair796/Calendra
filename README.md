@@ -154,6 +154,5 @@ MIT License — see the [LICENSE](LICENSE) file for details.
 ## Acknowledgments
 
 Inspired by Calendly • Built with Next.js, Clerk & Shadcn UI,Neon,Drizzle
-```
 
 
