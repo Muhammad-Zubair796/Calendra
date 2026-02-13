@@ -7,14 +7,13 @@ import { notFound } from "next/navigation"
 export default async function EditEventPage({
   params,
 }: {
-  params: Promise<{ eventid: string }> // 1️⃣ Change eventId to eventid (lowercase)
+  params: Promise<{ eventid: string }>
 }) {
   const { userId, redirectToSignIn } = await auth()
   if (!userId) return redirectToSignIn()
 
-  const { eventid } = await params // 2️⃣ Change eventId to eventid (lowercase)
+  const { eventid } = await params 
   
-  // 3️⃣ Pass eventid (lowercase) to the function
   const event = await getEvent(userId, eventid)
 
   if (!event) {
@@ -30,7 +29,9 @@ export default async function EditEventPage({
         <EventForm
           event={{
             ...event,
-            description: event.description || undefined,
+            // FIX: Convert null to an empty string. 
+            // This satisfies the 'string' type requirement in the form.
+            description: event.description ?? "", 
           }}
         />
       </CardContent>

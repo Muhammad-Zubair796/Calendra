@@ -22,8 +22,6 @@ export default function EventForm({
   const [isDeletePending, startDeleteTransition] = useTransition()
   const router = useRouter()
 
-  // FIX: Passing the Generic <EventFormValues> and casting the resolver to 'any'
-  // eliminates the conflict between Zod's optional fields and Shadcn's strict types.
   const form = useForm<EventFormValues>({
     resolver: zodResolver(eventFormSchema) as any,
     defaultValues: event 
@@ -65,6 +63,7 @@ export default function EventForm({
           </div>
         )}
 
+        {/* Event Name */}
         <FormField
           control={form.control}
           name="name"
@@ -72,31 +71,30 @@ export default function EventForm({
             <FormItem>
               <FormLabel>Event Name</FormLabel>
               <FormControl>
-                <Input {...field} />
+                {/* Fallback to empty string to prevent undefined error */}
+                <Input {...field} value={field.value ?? ""} />
               </FormControl>
-              <FormDescription>
-                The name users will see when booking
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
 
+        {/* Duration */}
         <FormField
           control={form.control}
           name="durationInMinutes"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Duration</FormLabel>
+              <FormLabel>Duration (Minutes)</FormLabel>
               <FormControl>
                 <Input type="number" {...field} />
               </FormControl>
-              <FormDescription>In minutes</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
 
+        {/* Description - The main cause of your current error */}
         <FormField
           control={form.control}
           name="description"
@@ -107,7 +105,8 @@ export default function EventForm({
                 <Textarea 
                   className="resize-none h-32" 
                   {...field} 
-                  value={field.value || ""} 
+                  // FIX: This ensures the value is never undefined
+                  value={field.value ?? ""} 
                 />
               </FormControl>
               <FormDescription>
@@ -118,6 +117,7 @@ export default function EventForm({
           )}
         />
 
+        {/* Active Toggle */}
         <FormField
           control={form.control}
           name="isActive"
@@ -132,9 +132,6 @@ export default function EventForm({
                 </FormControl>
                 <FormLabel>Active</FormLabel>
               </div>
-              <FormDescription>
-                Inactive events will not be visible for users to book
-              </FormDescription>
             </FormItem>
           )}
         />
@@ -144,7 +141,8 @@ export default function EventForm({
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button
-                  className="cursor-pointer hover:scale-105 hover:bg-red-700"
+                  type="button"
+                  className="cursor-pointer"
                   variant="destructive"
                   disabled={isDeletePending || form.formState.isSubmitting}
                 >
@@ -155,14 +153,13 @@ export default function EventForm({
                 <AlertDialogHeader>
                   <AlertDialogTitle>Are you sure?</AlertDialogTitle>
                   <AlertDialogDescription>
-                    This action cannot be undone. This will permanently delete
-                    this event.
+                    This action cannot be undone.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogCancel>Cancel</AlertDialogCancel>
                   <AlertDialogAction
-                    className="bg-red-500 hover:bg-red-700 cursor-pointer"
+                    className="bg-red-500 hover:bg-red-700"
                     disabled={isDeletePending || form.formState.isSubmitting}
                     onClick={() => {
                       startDeleteTransition(async () => {
@@ -194,7 +191,7 @@ export default function EventForm({
           </Button>
 
           <Button
-            className="cursor-pointer hover:scale-105 bg-blue-400 hover:bg-blue-600"
+            className="bg-blue-600 hover:bg-blue-700"
             disabled={isDeletePending || form.formState.isSubmitting}
             type="submit"
           >
