@@ -153,9 +153,7 @@ MIT License — see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-Inspired by Calendly • Built with Next.js, Clerk & Shadcn UI
+Inspired by Calendly • Built with Next.js, Clerk & Shadcn UI,Neon,Drizzle
 ```
 
-Just copy the block above (from `# Calendra` to the last line) → paste into your `README.md` on GitHub → commit → done!
 
-It will render perfectly with headings, bold text, code blocks, lists, and the logo image. Let me know if you want to add screenshots or anything else! 🚀
