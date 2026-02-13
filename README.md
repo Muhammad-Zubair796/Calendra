@@ -1,9 +1,14 @@
-
-
-
 # Calendra
 
 ![Logo](./public/assets/logo.svg)
+
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Now-brightgreen?style=for-the-badge&logo=vercel)](https://calendra-alpha-orpin.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Drizzle](https://img.shields.io/badge/Drizzle-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black)](https://orm.drizzle.team/)
+[![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 ## Overview
 
@@ -11,14 +16,7 @@ This project is a full-stack web application inspired by Calendly, designed for 
 
 The app handles user authentication, event creation/editing, scheduling, and booking confirmations. It integrates real-time availability checks, email notifications (via Google APIs or similar), and a clean UI built with modern React components.
 
-Key functionalities include:
-- User authentication and profiles.
-- Event management (create, edit, list).
-- Schedule configuration with time slots.
-- Public booking pages with available times.
-- Success confirmation after booking.
-
-This is built as a Next.js application with server-side rendering, API routes, and a PostgreSQL-compatible database (via Neon).
+**🔗 [View Live Application](https://calendra-alpha-orpin.vercel.app/)**
 
 ## Features
 
@@ -42,48 +40,22 @@ This is built as a Next.js application with server-side rendering, API routes, a
   - Loading states, animations (via `tw-animate-css`), and toasts (via `sonner`).
   - Custom forms with validation using `react-hook-form` and `zod`.
 - **Database Integration**: Use Drizzle ORM for type-safe queries and migrations with Neon Database (serverless PostgreSQL).
-- **Error Handling**: Custom 404 pages, authentication redirects, and alert messages for invalid states.
-- **Debugging**: Built-in console logs for troubleshooting authentication and data fetching.
 
 ## Tech Stack
 
 ### Frontend
-- **Next.js** (v16.1.6): React framework for server-side rendering, API routes, and static generation.
-- **React** (v19.2.3) & **React DOM**: Core libraries for building UIs.
+- **Next.js** (v16.1.6): React framework for server-side rendering and API routes.
+- **React** (v19.2.3): Core UI library.
 - **Clerk**: Authentication and user management.
-- **Shadcn UI**: Reusable UI components (e.g., Card, Button, Popover) built on Radix UI and Tailwind.
-- **React Hook Form** & **Zod**: Form handling and validation.
-- **Lucide React**: Icons library.
-- **Date-fns** & **Date-fns-tz**: Date manipulation and time zone support.
-- **Next Themes**: Theme management (light/dark mode).
-- **React Day Picker**: Calendar/date picker component.
-- **React Loading Indicators**: Loading spinners.
-- **Sonner**: Toast notifications.
-- **Tailwind Merge** & **Class Variance Authority (CVA)**: Utility for merging Tailwind classes.
-- **TW Animate CSS**: CSS animations.
+- **Shadcn UI**: Accessible component library.
+- **Tailwind CSS**: Styling and layout.
 
 ### Backend
-- **Drizzle ORM** (v0.45.1): Type-safe ORM for SQL queries.
-- **Neon Database** (@neondatabase/serverless): Serverless PostgreSQL database.
-- **Google APIs**: Integration for email/calendar features (e.g., sending confirmations).
-- **Clerk Server**: For server-side user data fetching.
-- **Next.js Server Actions**: For handling form submissions and database operations.
+- **Drizzle ORM**: Type-safe SQL query builder.
+- **Neon Database**: Serverless PostgreSQL.
+- **Next.js Server Actions**: Form submissions and DB logic.
 
-### Development Tools
-- **TypeScript** (v5): Static typing for better code quality.
-- **ESLint** (v9): Linting with Next.js config.
-- **Drizzle Kit** (v0.31.8): For database schema generation, migrations, and studio.
-- **Tailwind CSS** (v4.0.0): Utility-first CSS framework.
-- **PostCSS** & **Autoprefixer**: CSS processing.
-- **dotenv**: Environment variable management.
 
-## Prerequisites
-
-- Node.js (v18+ recommended).
-- A Neon Database account (or any PostgreSQL-compatible DB).
-- Clerk account for authentication.
-- Google API credentials (if using email integrations).
-- Git for version control.
 
 ## Installation
 
